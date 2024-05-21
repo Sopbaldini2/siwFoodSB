@@ -218,3 +218,30 @@ section .main .main_image img{
 }
 
 /* Recipes */
+
+.recipes{
+	width: 100%;
+	height: 100vh;
+	padding: 75px 0;
+}
+
+.recipes h1{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 45px;
+	color: #000;
+}
+
+.recipes h1 span{
+	color: crimson;
+	margin-left: 15px;
+}
+
+.recipes .recipes_box{
+	width: 95%;
+	margin:45px auto 0 auto;
+	display: grid;
+	grid-gap: 30px 10px;
+	grid-template-columns: 1fr 1fr 1fr;
+}
