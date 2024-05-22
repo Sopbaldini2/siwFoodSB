@@ -15,6 +15,7 @@ public class Ingredients {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String name;
 	private Float quantita;
 	@ManyToMany(mappedBy="ingredients")
@@ -25,6 +26,14 @@ public class Ingredients {
 	}
 
 	//Aggiungo i metodi Getter e Setter
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
