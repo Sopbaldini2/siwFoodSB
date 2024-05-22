@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -143,4 +145,13 @@ public class RecipeController {
 		}
 		return ingredientsToAdd;
 	}
+	
+	/*Verifica se funziona */
+	
+	 @PostMapping("/{id}")
+	    public String deleteRecipe(@PathVariable Long id, @AuthenticationPrincipal UserDetails userDetails) {
+	        String username = userDetails.getUsername();
+	        recipeService.deleteRecipe(id, username);
+	        return "redirect:/recipes";
+	    }
 }

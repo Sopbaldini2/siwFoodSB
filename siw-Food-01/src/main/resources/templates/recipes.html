@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ricette</title>
+</head>
+<body>
+    <h1>Ricette</h1>
+    <ul>
+        <li th:each="recipe : ${recipes}">
+            <span th:text="${recipe.name}">Recipe Name</span>
+            <form th:action="@{/recipes/{id}(id=${recipe.id})}" method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit">Elimina</button>
+            </form>
+        </li>
+    </ul>
+</body>
+</html>
