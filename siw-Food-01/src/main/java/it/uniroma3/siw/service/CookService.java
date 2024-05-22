@@ -19,7 +19,7 @@ import java.util.Optional;
 public class CookService {
 
     @Autowired
-    protected CookRepository userRepository;
+    protected CookRepository cookRepository;
 
     /**
      * This method retrieves a User from the DB based on its ID.
@@ -28,7 +28,7 @@ public class CookService {
      */
     @Transactional
     public Cook getUser(Long id) {
-        Optional<Cook> result = this.userRepository.findById(id);
+        Optional<Cook> result = this.cookRepository.findById(id);
         return result.orElse(null);
     }
 
@@ -40,8 +40,8 @@ public class CookService {
      *                              as the passed User already exists in the DB
      */
     @Transactional
-    public Cook saveUser(Cook user) {
-        return this.userRepository.save(user);
+    public Cook saveCook(Cook cook) {
+        return this.cookRepository.save(cook);
     }
 
     /**
@@ -51,9 +51,9 @@ public class CookService {
     @Transactional
     public List<Cook> getAllUsers() {
         List<Cook> result = new ArrayList<>();
-        Iterable<Cook> iterable = this.userRepository.findAll();
-        for(Cook user : iterable)
-            result.add(user);
+        Iterable<Cook> iterable = this.cookRepository.findAll();
+        for(Cook cook : iterable)
+            result.add(cook);
         return result;
     }
 }

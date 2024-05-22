@@ -29,7 +29,7 @@ public class AuthenticationController {
 	
 	@GetMapping(value = "/register") 
 	public String showRegisterForm (Model model) {
-		model.addAttribute("user", new Cook());
+		model.addAttribute("cook", new Cook());
 		model.addAttribute("credentials", new Credentials());
 		return "formRegisterUser";
 	}
@@ -67,7 +67,7 @@ public class AuthenticationController {
     }
 
 	@PostMapping(value = { "/register" })
-    public String registerUser(@Valid @ModelAttribute("user") Cook user,
+    public String registerUser(@Valid @ModelAttribute("cook") Cook cook,
                  BindingResult userBindingResult, @Valid
                  @ModelAttribute("credentials") Credentials credentials,
                  BindingResult credentialsBindingResult,
@@ -75,10 +75,10 @@ public class AuthenticationController {
 
 		// se user e credential hanno entrambi contenuti validi, memorizza User e the Credentials nel DB
         if(!userBindingResult.hasErrors() && !credentialsBindingResult.hasErrors()) {
-            userService.saveUser(user);
-            credentials.setUser(user);
+            userService.saveCook(cook);
+            credentials.setCook(cook);
             credentialsService.saveCredentials(credentials);
-            model.addAttribute("user", user);
+            model.addAttribute("cook", cook);
             return "registrationSuccessful";
         }
         return "registerUser";

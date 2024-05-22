@@ -21,7 +21,7 @@ public class Credentials {
 	private String role;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	private Cook user;
+	private Cook cook;
 	
 	public String getUsername() {
 		return username;
@@ -35,12 +35,12 @@ public class Credentials {
 		this.id = id;
 	}
 
-	public Cook getUser() {
-		return user;
+	public Cook getCook() {
+		return cook;
 	}
 
-	public void setUser(Cook user) {
-		this.user = user;
+	public void setCook(Cook cook) {
+		this.cook = cook;
 	}
 	
 	public void setUsername(String username) {
