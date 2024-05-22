@@ -19,7 +19,7 @@ public class Recipe {
 	private String name;
 	private String description;
 	@ManyToOne
-	private Cooke cooke;
+	private User cook;
 	@ManyToMany
 	private Set<Ingredient> ingredients;
 	
@@ -43,11 +43,11 @@ public class Recipe {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Cooke getCooke() {
-		return cooke;
+	public User getCook() {
+		return cook;
 	}
-	public void setCooke(Cooke cooke) {
-		this.cooke = cooke;
+	public void setCooke(User cook) {
+		this.cook = cook;
 	}
 	public Set<Ingredient> getIngredients() {
 		return ingredients;
@@ -61,7 +61,7 @@ public class Recipe {
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cooke, id, name);
+		return Objects.hash(cook, id, name);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -72,6 +72,6 @@ public class Recipe {
 		if (getClass() != obj.getClass())
 			return false;
 		Recipe other = (Recipe) obj;
-		return Objects.equals(cooke, other.cooke) && Objects.equals(id, other.id) && Objects.equals(name, other.name);
+		return Objects.equals(cook, other.cook) && Objects.equals(id, other.id) && Objects.equals(name, other.name);
 	}
 }
