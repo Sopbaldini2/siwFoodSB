@@ -19,7 +19,7 @@ section nav{
 	right: 0;
 	left: 0;
 	z-index: 1000;
-	box-shadow: 0 0 10px rgba(0,0,0,0,.5);
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 section nav .logo img{
@@ -220,6 +220,7 @@ section .main .main_image img{
 /* Recipes */
 
 .recipes{
+	margin-top: 50px;
 	width: 100%;
 	height: 100vh;
 	padding: 75px 0;
@@ -257,7 +258,7 @@ section .main .main_image img{
 	cursor: pointer;
 	padding: 20px 0;
 	border-radius: 10px;
-	box-shadow: 3px 3px 10px rgba(0,0,0,0,.2);
+	box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
 
 .recipes .recipes_box .recipes_card .recipes_img{
@@ -265,7 +266,7 @@ section .main .main_image img{
 	width: 420px;
 	height: 300px;
 	margin-bottom: 15px;
-	box-shadow: 0 0 8px rgba(0,0,0,0,.7);
+	box-shadow: 0 0 8px rgba(0,0,0,0.7);
 }
 
 .recipes .recipes_box .recipes_card .recipes_img img{
@@ -337,4 +338,164 @@ section .main .main_image img{
 	top: unset;
 	bottom: 0;
 	width: 100%;
+}
+
+.recipes .recipes_box .recipes_card .recipes_text .recipes_btn i{
+	margin-left: 8px;
+}
+
+/* Community */
+
+.community {
+	margin-top: 80px;
+	width: 100%;
+	height: 77vh;
+	padding: 10px 0;
+}
+
+.community h1{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 45px;
+}
+
+.community h1 span{
+	color:darkgreen;
+}
+
+.community .community_line_1{
+	width: 100%;
+	height: 50px;
+	background: darkgreen;
+	position: relative;
+	top: 25%;
+	z-index: 1;
+}
+
+.community .community_line_2{
+	width: 100%;
+	height: 50px;
+	background: darkgreen;
+	position: relative;
+	top: 56%;
+	z-index: 1;
+}
+
+.community .community_box{
+	width: 95%;
+	height: auto;
+	margin:0 auto;
+	position: relative;
+	bottom: 55px;
+	padding: 15px 0;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr ;
+	grid-gap: 0;
+}
+
+.community .community_box .community_card{
+	width: 350px;
+	height: 410px;
+	background: #fff;
+	padding: 20px;
+	text-align: center;
+	border-radius: 10px;
+	margin: 0 auto;
+	z-index: 5;
+	box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+}
+
+.community .community_box .community_card .community_img {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.community .community_box .community_card .community_img img{
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+	object-position: center;
+	box-shadow: 0 0 8px rgba(0,0,0,0.3);
+}
+
+.community .community_box .community_card .community_tag h2{
+	margin: 10px 0;
+}
+
+.community .community_box .community_card .community_tag p.info{
+	text-align: center;
+	line-height: 23px;
+	margin-top: 10px;
+}
+
+/* Footer */
+
+footer{
+	margin-top: 50px;
+	width: 100%;
+	padding: 30px 0 0 20px;
+	background: #eeeeee;
+}
+
+footer .footer_main{
+	display: grid;
+	grid-template-columns:1fr 1fr 1fr;
+}
+
+footer .footer_main .footer_img{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .footer_main .footer_img img{
+	max-width: 150px;
+    height: auto;
+}
+
+footer .footer_main .footer_tag{
+	text-align: center;
+}
+
+footer .footer_main .footer_tag h2{
+	color: #000;
+	margin-bottom: 25px;
+	font-size: 30px;
+}
+
+footer .footer_main .footer_tag p{
+	margin: 10px 0;	
+}
+
+footer .footer_main .footer_tag i{
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+footer .footer_main .footer_tag i:hover{
+	color: crimson;
+}
+
+footer .end{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px 0;
+}
+
+footer .end span{
+	color:#facc22;
+	margin-left: 5px;
+}
+
+::-webkit-scrollbar{
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+	background: rgb(0, 179, 0);
+	border-radius: 30px;
 }
