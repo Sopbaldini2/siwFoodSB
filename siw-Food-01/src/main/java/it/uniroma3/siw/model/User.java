@@ -1,9 +1,16 @@
 package it.uniroma3.siw.model;
 
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 
@@ -20,6 +27,17 @@ public class User {
 	private String surname;
 	@NotBlank
 	private String email;
+	@NotBlank
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataOfBirth;
+	@OneToMany(mappedBy="cook")
+	private List<Recipe> cookRecipe;
+	
+	public User() {
+		this.cookRecipe = new LinkedList<>();
+	}
+
+	//Aggiungo i  metodi Getter e Setter
 
     public Long getId() {
 		return id;
@@ -52,6 +70,25 @@ public class User {
 		this.email = email;
 	}
 
+	public LocalDate getDataOfBirth() {
+		return dataOfBirth;
+	}
+
+	public void setDataOfBirth(LocalDate dataOfBirth) {
+		this.dataOfBirth = dataOfBirth;
+	}
+
+	public List<Recipe> getCookRecipe() {
+		return cookRecipe;
+	}
+
+	public void setCookRecipe(List<Recipe> cookRecipe) {
+		this.cookRecipe = cookRecipe;
+	}
+
+	//Aggiungo i metodi Equals() e HashCode() 
+	//Due oggetti Cooke sono uguali se hanno lo stesso nome e cognome
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -59,6 +96,7 @@ public class User {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((dataOfBirth == null) ? 0 : dataOfBirth.hashCode());
 		return result;
 	}
 
@@ -85,6 +123,11 @@ public class User {
 			if (other.email != null)
 				return false;
 		} else if (!email.equals(other.email))
+			return false;
+		if (dataOfBirth == null) {
+			if (other.dataOfBirth != null)
+				return false;
+		} else if (!dataOfBirth.equals(other.dataOfBirth))
 			return false;
 		return true;
 	}
