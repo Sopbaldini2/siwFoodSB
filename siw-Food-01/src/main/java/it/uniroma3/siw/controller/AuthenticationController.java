@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.model.Credentials;
 import it.uniroma3.siw.model.Cook;
 import it.uniroma3.siw.service.CredentialsService;
-import it.uniroma3.siw.service.UserService;
+import it.uniroma3.siw.service.CookService;
 import jakarta.validation.Valid;
 
 @Controller
@@ -25,7 +25,7 @@ public class AuthenticationController {
 	private CredentialsService credentialsService;
 
     @Autowired
-	private UserService userService;
+	private CookService userService;
 	
 	@GetMapping(value = "/register") 
 	public String showRegisterForm (Model model) {
