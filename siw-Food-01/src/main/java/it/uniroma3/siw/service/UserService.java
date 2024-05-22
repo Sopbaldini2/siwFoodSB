@@ -5,7 +5,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.uniroma3.siw.model.User;
+import it.uniroma3.siw.model.Cook;
 import it.uniroma3.siw.repository.UserRepository;
 
 import java.util.ArrayList;
@@ -27,8 +27,8 @@ public class UserService {
      * @return the retrieved User, or null if no User with the passed ID could be found in the DB
      */
     @Transactional
-    public User getUser(Long id) {
-        Optional<User> result = this.userRepository.findById(id);
+    public Cook getUser(Long id) {
+        Optional<Cook> result = this.userRepository.findById(id);
         return result.orElse(null);
     }
 
@@ -40,7 +40,7 @@ public class UserService {
      *                              as the passed User already exists in the DB
      */
     @Transactional
-    public User saveUser(User user) {
+    public Cook saveUser(Cook user) {
         return this.userRepository.save(user);
     }
 
@@ -49,10 +49,10 @@ public class UserService {
      * @return a List with all the retrieved Users
      */
     @Transactional
-    public List<User> getAllUsers() {
-        List<User> result = new ArrayList<>();
-        Iterable<User> iterable = this.userRepository.findAll();
-        for(User user : iterable)
+    public List<Cook> getAllUsers() {
+        List<Cook> result = new ArrayList<>();
+        Iterable<Cook> iterable = this.userRepository.findAll();
+        for(Cook user : iterable)
             result.add(user);
         return result;
     }

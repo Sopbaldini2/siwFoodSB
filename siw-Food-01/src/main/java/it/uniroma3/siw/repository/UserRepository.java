@@ -2,7 +2,7 @@ package it.uniroma3.siw.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import it.uniroma3.siw.model.User;
+import it.uniroma3.siw.model.Cook;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface UserRepository extends CrudRepository<Cook, Long> {
 }

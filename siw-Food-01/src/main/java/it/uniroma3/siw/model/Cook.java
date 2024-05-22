@@ -16,7 +16,7 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users") // cambiamo nome perchè in postgres user e' una parola riservata
-public class User {
+public class Cook {
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -33,7 +33,7 @@ public class User {
 	@OneToMany(mappedBy="cook")
 	private List<Recipe> cookRecipe;
 	
-	public User() {
+	public Cook() {
 		this.cookRecipe = new LinkedList<>();
 	}
 
@@ -108,7 +108,7 @@ public class User {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Cook other = (Cook) obj;
 		if (name == null) {
 			if (other.name != null)
 				return false;

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.model.Credentials;
-import it.uniroma3.siw.model.User;
+import it.uniroma3.siw.model.Cook;
 import it.uniroma3.siw.service.CredentialsService;
 import it.uniroma3.siw.service.UserService;
 import jakarta.validation.Valid;
@@ -29,7 +29,7 @@ public class AuthenticationController {
 	
 	@GetMapping(value = "/register") 
 	public String showRegisterForm (Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user", new Cook());
 		model.addAttribute("credentials", new Credentials());
 		return "formRegisterUser";
 	}
@@ -67,7 +67,7 @@ public class AuthenticationController {
     }
 
 	@PostMapping(value = { "/register" })
-    public String registerUser(@Valid @ModelAttribute("user") User user,
+    public String registerUser(@Valid @ModelAttribute("user") Cook user,
                  BindingResult userBindingResult, @Valid
                  @ModelAttribute("credentials") Credentials credentials,
                  BindingResult credentialsBindingResult,

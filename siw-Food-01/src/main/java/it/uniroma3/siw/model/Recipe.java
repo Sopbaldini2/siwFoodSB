@@ -19,7 +19,7 @@ public class Recipe {
 	private String name;
 	private String description;
 	@ManyToOne
-	private User cook;
+	private Cook cook;
 	@ManyToMany
 	private Set<Ingredient> ingredients;
 	
@@ -43,10 +43,10 @@ public class Recipe {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public User getCook() {
+	public Cook getCook() {
 		return cook;
 	}
-	public void setCooke(User cook) {
+	public void setCooke(Cook cook) {
 		this.cook = cook;
 	}
 	public Set<Ingredient> getIngredients() {
