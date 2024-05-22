@@ -4,5 +4,5 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.uniroma3.siw.model.Cook;
 
-public interface UserRepository extends CrudRepository<Cook, Long> {
+public interface CookRepository extends CrudRepository<Cook, Long> {
 }

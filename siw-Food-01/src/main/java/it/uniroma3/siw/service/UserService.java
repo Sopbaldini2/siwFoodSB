@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.uniroma3.siw.model.Cook;
-import it.uniroma3.siw.repository.UserRepository;
+import it.uniroma3.siw.repository.CookRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    protected UserRepository userRepository;
+    protected CookRepository userRepository;
 
     /**
      * This method retrieves a User from the DB based on its ID.
