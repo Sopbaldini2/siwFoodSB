@@ -21,7 +21,7 @@ public class Recipe {
 	@ManyToOne
 	private Cooke cooke;
 	@ManyToMany
-	private Set<Ingredients> ingredients;
+	private Set<Ingredient> ingredients;
 	
 	//Aggiungo i metodi Getter e Setter
 	
@@ -49,10 +49,10 @@ public class Recipe {
 	public void setCooke(Cooke cooke) {
 		this.cooke = cooke;
 	}
-	public Set<Ingredients> getIngredients() {
+	public Set<Ingredient> getIngredients() {
 		return ingredients;
 	}
-	public void setIngredients(Set<Ingredients> ingredients) {
+	public void setIngredients(Set<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
 	

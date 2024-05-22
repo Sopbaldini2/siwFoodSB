@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.uniroma3.siw.controller.validator.RecipeValidator;
-import it.uniroma3.siw.model.Ingredients;
+import it.uniroma3.siw.model.Ingredient;
 import it.uniroma3.siw.model.Recipe;
 import it.uniroma3.siw.service.IngredientsService;
 import it.uniroma3.siw.service.RecipeService;
@@ -96,7 +96,7 @@ public class RecipeController {
 	@GetMapping("/updateIngredients/{id}")
 	public String updateIngredients(@PathVariable("id") Long id, Model model) {
 
-		List<Ingredients> ingredientsToAdd = this.ingredientsToAdd(id);
+		List<Ingredient> ingredientsToAdd = this.ingredientsToAdd(id);
 		model.addAttribute("ingredientsToAdd", ingredientsToAdd);
 		model.addAttribute("recipe", this.recipeService.findById(id));
 
@@ -106,12 +106,12 @@ public class RecipeController {
 	@GetMapping("addIngredientToRecipe/{IngredientId}/{recipeId}")
 	public String addIngredientToRecipe(@PathVariable("IngredientId") Long IngredientId, @PathVariable("recipeId") Long recipeId, Model model) {
 		Recipe recipe = this.recipeService.findById(recipeId);
-		Ingredients ingredient = this.ingredientsService.findById(IngredientId);
-		Set<Ingredients> ingredients = recipe.getIngredients();
+		Ingredient ingredient = this.ingredientsService.findById(IngredientId);
+		Set<Ingredient> ingredients = recipe.getIngredients();
 		ingredients.add(ingredient);
 		this.recipeService.save(recipe);
 		
-		List<Ingredients> ingredientsToAdd = ingredientsToAdd(recipeId);
+		List<Ingredient> ingredientsToAdd = ingredientsToAdd(recipeId);
 		
 		model.addAttribute("recipe", recipe);
 		model.addAttribute("ingredientsToAdd", ingredientsToAdd);
@@ -122,12 +122,12 @@ public class RecipeController {
 	@GetMapping("/removeIngredientsFromRecipe/{IngredientId}/{recipeId}")
 	public String removeIngredientsFromRecipe(@PathVariable("actorId") Long IngredientId, @PathVariable("recipeId") Long recipeId, Model model) {
 		Recipe recipe = this.recipeService.findById(recipeId);
-		Ingredients ingredient = this.ingredientsService.findById(IngredientId);
-		Set<Ingredients> ingredients = recipe.getIngredients();
+		Ingredient ingredient = this.ingredientsService.findById(IngredientId);
+		Set<Ingredient> ingredients = recipe.getIngredients();
 		ingredients.remove(ingredient);
 		this.recipeService.save(recipe);
 
-		List<Ingredients> ingredientsToAdd = ingredientsToAdd(recipeId);
+		List<Ingredient> ingredientsToAdd = ingredientsToAdd(recipeId);
 		
 		model.addAttribute("recipe", recipe);
 		model.addAttribute("ingredientsToAdd", ingredientsToAdd);
@@ -135,10 +135,10 @@ public class RecipeController {
 		return "ingredientsToAdd.html";
 	}
 
-	private List<Ingredients> ingredientsToAdd(Long recipeId) {
-		List<Ingredients> ingredientsToAdd = new ArrayList<>();
+	private List<Ingredient> ingredientsToAdd(Long recipeId) {
+		List<Ingredient> ingredientsToAdd = new ArrayList<>();
 
-		for (Ingredients a : ingredientsService.findIngredientsNotRecipe(recipeId)) {
+		for (Ingredient a : ingredientsService.findIngredientsNotRecipe(recipeId)) {
 			ingredientsToAdd.add(a);
 		}
 		return ingredientsToAdd;

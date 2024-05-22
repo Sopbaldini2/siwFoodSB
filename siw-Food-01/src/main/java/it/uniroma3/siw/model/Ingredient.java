@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class Ingredients {
+public class Ingredient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +21,7 @@ public class Ingredients {
 	@ManyToMany(mappedBy="ingredients")
 	private Set<Recipe> ingredients;
 	
-	public Ingredients() {
+	public Ingredient() {
 		this.ingredients = new HashSet<>();
 	}
 
@@ -75,7 +75,7 @@ public class Ingredients {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Ingredients other = (Ingredients) obj;
+		Ingredient other = (Ingredient) obj;
 		return Objects.equals(ingredients, other.ingredients) && Objects.equals(name, other.name)
 				&& Objects.equals(quantita, other.quantita);
 	}
